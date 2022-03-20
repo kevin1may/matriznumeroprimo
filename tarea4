@@ -1,0 +1,62 @@
+#include<iostream>
+#include<conio.h>
+
+bool NOPrimo(int numero) {    ////funcion que identifica el numero primo
+  //Casos especiales
+  if (numero == 0 || numero == 1 || numero == 4)   ///lo compara lo valida
+    return false;  
+  for (int x = 2; x < numero / 2; x++) {   // lo compara con un ciclo
+    if (numero % x == 0)
+      return false;
+	}
+  return true;  //si valida como true entonces el numero no es primo
+}
+
+using namespace std;
+
+int main(){
+	int matriznumeros[100][100],filas,columnas; //tamaño del ciclo
+	
+		cout<<"*SISTEMA DE CONTROL DE MATRIZ PROYECTO*"<<endl; ///  ////menu
+		cout<<"Ingrese el numero de filas que desea: "; cin>>filas; // solicita el numero de filas
+		cout<<"Ingrese el numero de columnas que desea: "; cin>>columnas; // solicita el numero de columnas
+	
+	//Rellenando la matriz	filas * columnas
+	for(int i=0;i<filas;i++){   //ciclo for filas
+		for(int j=0;j<columnas;j++){  // ciclo for columnas 
+			cout<<"Ingrese un numero ["<<i<<"]["<<j<<"]: "; // solicita el No de ingrese el numero
+			cin>>matriznumeros[i][j]; //el ciclo se activa y va ingresando datos a la matriz uno por uno
+		}
+	} 	 //se termina los 2 ciclos 
+		
+	int suma; //variable que valida el total de la suma se incializa a 0
+	suma=0;
+	
+	for(int i=0;i<filas;i++){     //ciclo para validar los datos ingresados
+		for(int j=0;j<columnas;j++){ // ciclo para validar datos ingresados
+				
+			suma=suma+matriznumeros [i][j];  //se repite la variable y acumula el valor total
+				
+		}	
+	} 	cout<<"\n";  / // salto de linea 
+		
+	cout<< "La Suma de la Matriz es :"<< suma <<endl;   //mensaje de la suma de la matriz
+    if (NOPrimo(suma)) {   ///funcion if que valida el valor de suma del ciclo anterior
+   cout << "La sumatoria de la matriz el No Es primo"<<endl;  //si la funcion devuelve false ingresa al ciclo for
+    
+    for(int i=0;i<filas;i++){
+    	
+		for(int j=0;j<columnas;j++){   /// ciclo numero 1
+			cout<<"Mostrando matriz "<<endl;  ///ciclo numero 2	
+			cout<< matriznumeros [i][j]<< " || ";  /// contador muestra e imprime los valores
+			
+		}
+	
+	}
+  } else {
+    std::cout << " La sumatoria de la matriz el No. no es primo"; // nos indica un valor 
+  }
+	
+	getch();
+	return 0;
+}
